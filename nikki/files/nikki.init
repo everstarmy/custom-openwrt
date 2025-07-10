@@ -108,7 +108,6 @@ start_service() {
 		return
 	fi
 	# mixin
-<<<<<<< HEAD
 	if [ "$core_only" = 0 ]; then
 		log "Mixin" "Mixin config."
 		if [ "$overwrite_authentication" = 1 ]; then
@@ -141,40 +140,6 @@ start_service() {
 		if [ "$mixin_file_content" = 0 ]; then
 			ucode -S "$MIXIN_UC" | yq -M -p json -o yaml | yq -M -i ea '... comments="" | . as $item ireduce ({}; . * $item ) | .rules = .nikki-rules + .rules | del(.nikki-rules)' "$RUN_PROFILE_PATH" -
 		elif [ "$mixin_file_content" = 1 ]; then
-=======
-	if [ "$core_only" == 0 ]; then
-		log "Mixin" "Mixin config."
-		if [ "$overwrite_authentication" == 1 ]; then
-			yq -M -i 'del(.authentication)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_tun_dns_hijack" == 1 ]; then
-			yq -M -i 'del(.tun.dns-hijack)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_fake_ip_filter" == 1 ]; then
-			yq -M -i 'del(.dns.fake-ip-filter)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_hosts" == 1 ]; then
-			yq -M -i 'del(.hosts)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_dns_nameserver" == 1 ]; then
-			yq -M -i 'del(.dns.default-nameserver) | del(.dns.proxy-server-nameserver) | del(.dns.direct-nameserver) | del(.dns.nameserver) | del(.dns.fallback) ' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_dns_nameserver_policy" == 1 ]; then
-			yq -M -i 'del(.dns.nameserver-policy)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_sniffer_force_domain_name" == 1 ]; then
-			yq -M -i 'del(.sniffer.force-domain)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_sniffer_ignore_domain_name" == 1 ]; then
-			yq -M -i 'del(.sniffer.skip-domain)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$overwrite_sniffer_sniff" == 1 ]; then
-			yq -M -i 'del(.sniffer.sniff)' "$RUN_PROFILE_PATH"
-		fi
-		if [ "$mixin_file_content" == 0 ]; then
-			ucode -S "$MIXIN_UC" | yq -M -p json -o yaml | yq -M -i ea '... comments="" | . as $item ireduce ({}; . * $item ) | .rules = .nikki-rules + .rules | del(.nikki-rules)' "$RUN_PROFILE_PATH" -
-		elif [ "$mixin_file_content" == 1 ]; then
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 			ucode -S "$MIXIN_UC" | yq -M -p json -o yaml | yq -M -i ea '... comments="" | . as $item ireduce ({}; . * $item ) | .rules = .nikki-rules + .rules | del(.nikki-rules)' "$RUN_PROFILE_PATH" "$MIXIN_FILE_PATH" -
 		fi
 	fi
@@ -253,7 +218,6 @@ service_started() {
 	config_get tun_interval "proxy" "tun_interval" 1
 	## routing config
 	local tproxy_fw_mark tun_fw_mark tproxy_rule_pref tun_rule_pref tproxy_route_table tun_route_table cgroup_id cgroup_name
-<<<<<<< HEAD
 	config_get tproxy_fw_mark "routing" "tproxy_fw_mark" "0x80"
 	config_get tun_fw_mark "routing" "tun_fw_mark" "0x81"
 	config_get tproxy_rule_pref "routing" "tproxy_rule_pref" "1024"
@@ -262,16 +226,6 @@ service_started() {
 	config_get tun_route_table "routing" "tun_route_table" "81"
 	config_get cgroup_id "routing" "cgroup_id" "0x12061206"
 	config_get cgroup_name "routing" "cgroup_name" "nikki"
-=======
-	config_get tproxy_fw_mark "routing" "tproxy_fw_mark"
-	config_get tun_fw_mark "routing" "tun_fw_mark"
-	config_get tproxy_rule_pref "routing" "tproxy_rule_pref"
-	config_get tun_rule_pref "routing" "tun_rule_pref"
-	config_get tproxy_route_table "routing" "tproxy_route_table"
-	config_get tun_route_table "routing" "tun_route_table"
-	config_get cgroup_id "routing" "cgroup_id"
-	config_get cgroup_name "routing" "cgroup_name"
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 	# prepare config
 	local tproxy_enable; tproxy_enable=0
 	if [ "$tcp_mode" = "tproxy" ] || [ "$udp_mode" = "tproxy" ]; then
@@ -281,19 +235,11 @@ service_started() {
 	if [ "$tcp_mode" = "tun" ] || [ "$udp_mode" = "tun" ]; then
 		tun_enable=1
 	fi
-<<<<<<< HEAD
 	if [ "$core_only" = 0 ]; then
 		# proxy
 		log "Proxy" "Enabled."
 		# wait for tun device online
 		if [ "$tun_enable" = 1 ]; then
-=======
-	if [ "$core_only" == 0 ]; then
-		# proxy
-		log "Proxy" "Enabled."
-		# wait for tun device online
-		if [ "$tun_enable" == 1 ]; then
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 			log "Proxy" "Waiting for tun device online within $tun_timeout seconds..."
 			while [ "$tun_timeout" -gt 0 ]; do
 				if (ip link show dev "$tun_device" > /dev/null 2>&1); then
@@ -321,70 +267,39 @@ service_started() {
 		fi
 		## kmod-br-netfilter
 		### when kmod-br-netfilter is loaded, bridge-nf-call-iptables and bridge-nf-call-ip6tables are set to 1, we need to set them to 0 if tproxy is enabled
-<<<<<<< HEAD
 		if [ "$tproxy_enable" = 1 ] && (lsmod | grep -q br_netfilter); then
 			if [ "$ipv4_proxy" = 1 ]; then
 				local bridge_nf_call_iptables; bridge_nf_call_iptables=$(sysctl -e -n net.bridge.bridge-nf-call-iptables)
 				if [ "$bridge_nf_call_iptables" = 1 ]; then
-=======
-		if [ "$tproxy_enable" == 1 ] && (lsmod | grep -q br_netfilter); then
-			if [ "$ipv4_proxy" == 1 ]; then
-				local bridge_nf_call_iptables; bridge_nf_call_iptables=$(sysctl -e -n net.bridge.bridge-nf-call-iptables)
-				if [ "$bridge_nf_call_iptables" == 1 ]; then
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 					touch "$BRIDGE_NF_CALL_IPTABLES_FLAG_PATH"
 					sysctl -q -w net.bridge.bridge-nf-call-iptables=0
 				fi
 			fi
-<<<<<<< HEAD
 			if [ "$ipv6_proxy" = 1 ]; then
 				local bridge_nf_call_ip6tables; bridge_nf_call_ip6tables=$(sysctl -e -n net.bridge.bridge-nf-call-ip6tables)
 				if [ "$bridge_nf_call_ip6tables" = 1 ]; then
-=======
-			if [ "$ipv6_proxy" == 1 ]; then
-				local bridge_nf_call_ip6tables; bridge_nf_call_ip6tables=$(sysctl -e -n net.bridge.bridge-nf-call-ip6tables)
-				if [ "$bridge_nf_call_ip6tables" == 1 ]; then
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 					touch "$BRIDGE_NF_CALL_IP6TABLES_FLAG_PATH"
 					sysctl -q -w net.bridge.bridge-nf-call-ip6tables=0
 				fi
 			fi
 		fi
 		# ip route and rule
-<<<<<<< HEAD
 		if [ "$tproxy_enable" = 1 ]; then
 			if [ "$ipv4_proxy" = 1 ]; then
 				ip -4 route add local default dev lo table "$tproxy_route_table"
 				ip -4 rule add pref "$tproxy_rule_pref" fwmark "$tproxy_fw_mark" table "$tproxy_route_table"
 			fi
 			if [ "$ipv6_proxy" = 1 ]; then
-=======
-		if [ "$tproxy_enable" == 1 ]; then
-			if [ "$ipv4_proxy" == 1 ]; then
-				ip -4 route add local default dev lo table "$tproxy_route_table"
-				ip -4 rule add pref "$tproxy_rule_pref" fwmark "$tproxy_fw_mark" table "$tproxy_route_table"
-			fi
-			if [ "$ipv6_proxy" == 1 ]; then
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 				ip -6 route add local default dev lo table "$tproxy_route_table"
 				ip -6 rule add pref "$tproxy_rule_pref" fwmark "$tproxy_fw_mark" table "$tproxy_route_table"
 			fi
 		fi
-<<<<<<< HEAD
 		if [ "$tun_enable" = 1 ]; then
 			if [ "$ipv4_proxy" = 1 ]; then
 				ip -4 route add unicast default dev "$tun_device" table "$tun_route_table"
 				ip -4 rule add pref "$tun_rule_pref" fwmark "$tun_fw_mark" table "$tun_route_table"
 			fi
 			if [ "$ipv6_proxy" = 1 ]; then
-=======
-		if [ "$tun_enable" == 1 ]; then
-			if [ "$ipv4_proxy" == 1 ]; then
-				ip -4 route add unicast default dev "$tun_device" table "$tun_route_table"
-				ip -4 rule add pref "$tun_rule_pref" fwmark "$tun_fw_mark" table "$tun_route_table"
-			fi
-			if [ "$ipv6_proxy" == 1 ]; then
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 				ip -6 route add unicast default dev "$tun_device" table "$tun_route_table"
 				ip -6 rule add pref "$tun_rule_pref" fwmark "$tun_fw_mark" table "$tun_route_table"
 			fi
@@ -423,13 +338,8 @@ cleanup() {
 	# get config
 	## routing config
 	local tproxy_route_table tun_route_table
-<<<<<<< HEAD
 	config_get tproxy_route_table "routing" "tproxy_route_table" "80"
 	config_get tun_route_table "routing" "tun_route_table" "81"
-=======
-	config_get tproxy_route_table "routing" "tproxy_route_table"
-	config_get tun_route_table "routing" "tun_route_table"
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 	# delete routing policy
 	ip -4 rule del table "$tproxy_route_table" > /dev/null 2>&1
 	ip -4 rule del table "$tun_route_table" > /dev/null 2>&1

@@ -10,21 +10,12 @@ msgid "API Secret"
 msgstr ""
 
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:69
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:119
 msgid "Access Control"
 msgstr ""
 
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:169
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:174
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:118
-msgid "Access Control"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:168
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:173
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "All Port"
 msgstr ""
 
@@ -65,7 +56,6 @@ msgstr ""
 msgid "Block Mode"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:162
 msgid "Bypass"
 msgstr ""
@@ -75,17 +65,6 @@ msgid "Bypass China Mainland IP"
 msgstr ""
 
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:177
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:161
-msgid "Bypass"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:163
-msgid "Bypass China Mainland IP"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:176
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "Bypass DSCP"
 msgstr ""
 
@@ -106,13 +85,8 @@ msgstr ""
 msgid "Clear Log"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:170
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:175
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:169
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:174
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "Commonly Used Port"
 msgstr ""
 
@@ -168,19 +142,11 @@ msgstr ""
 msgid "Destination Port"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:167
 msgid "Destination TCP Port to Proxy"
 msgstr ""
 
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:172
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:166
-msgid "Destination TCP Port to Proxy"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:171
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "Destination UDP Port to Proxy"
 msgstr ""
 
@@ -215,7 +181,6 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:147
 msgid "Disable ECN of quic-go"
 msgstr ""
@@ -228,24 +193,6 @@ msgstr ""
 msgid "Disable Loopback Detector"
 msgstr ""
 
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:142
-msgid "Disable ECN of quic-go"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:139
-msgid "Disable GSO of quic-go"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:136
-msgid "Disable Loopback Detector"
-msgstr ""
-
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:133
-msgid "Disable Safe Path Check"
-msgstr ""
-
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:82
 msgid "Disable TCP Keep Alive"
 msgstr ""
@@ -348,11 +295,7 @@ msgstr ""
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:66
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:77
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:104
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:127
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:126
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "Enable"
 msgstr ""
 
@@ -521,11 +464,7 @@ msgstr ""
 msgid "Inbound Config"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:107
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:106
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "Inbound Interface"
 msgstr ""
 
@@ -692,11 +631,7 @@ msgid "Protocol"
 msgstr ""
 
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:99
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:159
-=======
-#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:158
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 msgid "Proxy"
 msgstr ""
 
@@ -766,13 +701,10 @@ msgstr ""
 msgid "SOCKS Port"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:133
 msgid "Safe Paths"
 msgstr ""
 
-=======
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:129
 msgid "Save Proxy Selection"
 msgstr ""
@@ -786,13 +718,10 @@ msgstr ""
 msgid "Scroll To Bottom"
 msgstr ""
 
-<<<<<<< HEAD
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:150
 msgid "Skip System IPv6 Check"
 msgstr ""
 
-=======
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:392
 msgid "Sniff By Protocol"
 msgstr ""

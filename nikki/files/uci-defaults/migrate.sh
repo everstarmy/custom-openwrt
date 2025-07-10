@@ -127,7 +127,6 @@ proxy_tun_timeout=$(uci -q get nikki.proxy.tun_timeout); [ -z "$proxy_tun_timeou
 
 proxy_tun_interval=$(uci -q get nikki.proxy.tun_interval); [ -z "$proxy_tun_interval" ] && uci set nikki.proxy.tun_interval=1
 
-<<<<<<< HEAD
 # since v1.23.1
 uci show nikki | grep -o -E 'nikki.@router_access_control\[[[:digit:]]+\]=router_access_control' | cut -d '=' -f 1 | while read -r router_access_control; do
 	for cgroup in $(uci -q get "$router_access_control.cgroup"); do
@@ -144,8 +143,6 @@ env_disable_safe_path_check=$(uci -q get nikki.env.disable_safe_path_check); [ -
 
 env_skip_system_ipv6_check=$(uci -q get nikki.env.skip_system_ipv6_check); [ -z "$env_skip_system_ipv6_check" ] && uci set nikki.env.skip_system_ipv6_check=0
 
-=======
->>>>>>> 1f954805fd9d71d8abb0e87df9b0e8a3f2139178
 # commit
 uci commit nikki
 
